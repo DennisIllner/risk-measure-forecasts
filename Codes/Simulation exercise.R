@@ -60,7 +60,7 @@ dt_limit <- function(x=x1) {
  return(y)}
 
 stat_function(fun = dnorm) # additional inclusion of the normal distribution for comparing purposes
-ggplot() + 
+riskmeasures<-ggplot() + 
   xlim(-5,5)+
   stat_function(fun = dnorm, args = list(mean = 0, sd = 1), color = "red")+
   stat_function(fun = fGarch::dstd, args = list(nu = nu), color = "green")+
@@ -69,7 +69,7 @@ ggplot() +
   geom_point(aes(x = q_sgarch.t, y = 0, color = "VaR"), size = 1)+
   labs(y = "density", x = "return", color = "") +
   theme(legend.position = "none")
-
+ggsave(filename = "C:/Users/illne/Desktop/Uni/6.Semester/Seminar Ökonometrie/Paper/Density Simulation.png", plot = riskmeasures, dpi = 600, width = 8, height = 5)
 #Graphical illustration of risk-measure time series
 f <- function(l) fGarch::qstd(p=l, mean=0, sd=1, nu=7) #define quantile function
 alpha=.05
@@ -84,11 +84,11 @@ riskmeasures<-data.frame(
 ) 
 riskmeasures$violations=(riskmeasures$return<riskmeasures$VaR) # risk measure violations
 
-ggplot(data = riskmeasures, aes(x = timeindex, y = return)) +
+riskmeasures.ts<-ggplot(data = riskmeasures, aes(x = timeindex, y = return)) +
   geom_line(color="black", alpha = 0.7) +
   geom_line(aes(y=vola), color = "darkorange") +
   geom_line(aes(y=VaR), color = "green") +
   geom_line(aes(y=ES), color = "blue") +
   geom_point(data=subset(riskmeasures, return < VaR), aes(y = return), color="darkred")
-
+ggsave(filename = "C:/Users/illne/Desktop/Uni/6.Semester/Seminar Ökonometrie/Paper/Time Series Simulation.png", plot = riskmeasures.ts, dpi = 600, width = 8, height = 5)
 sum(riskmeasures$violations==TRUE) #number of violations

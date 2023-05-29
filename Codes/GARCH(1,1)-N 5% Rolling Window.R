@@ -10,7 +10,7 @@ library(ggplot2) # plot environment
 
 #Data preparation
 rm(list=ls())
-setwd("C:/Users/illne/Desktop/Uni/6.Semester/Seminar Ökonometrie/Empirical Estimation")
+setwd("C:/Users/illne/Desktop/Uni/6.Semester/Seminar Ökonometrie/risk-measure-forecasts/Codes")
 getwd()
 data <- read.csv("XDWF.DE.csv",header=TRUE, sep = ",")
 class(data) #check class of the data
@@ -89,13 +89,13 @@ RollingWindow<-tail(Index,500)
 as.numeric(RollingWindow$VaRforecast)
 
 #plot the rolling window
-ggplot(data=RollingWindow,aes(x=Date, y=lret))+
+ts.N<-ggplot(data=RollingWindow,aes(x=Date, y=lret))+
   geom_line(color="black",alpha=0.7)+
   geom_line(aes(y=volaforecast),color="darkorange")+
   geom_line(aes(y=VaRforecast), color="green")+
   geom_line(aes(y=ESforecast),color="blue")+
   geom_point(data=subset(RollingWindow, lret < VaRforecast), aes(y = lret), color="darkred")
-
+ggsave(filename = "C:/Users/illne/Desktop/Uni/6.Semester/Seminar Ökonometrie/Paper/Rolling Window GARCH(1,1)-N.png", plot = ts.N, dpi = 600, width = 8, height = 5)
 #Calculation of violations
 RollingWindow$violations=(RollingWindow$lret<RollingWindow$VaRforecast)
 sum(na.omit(RollingWindow$violations==TRUE))

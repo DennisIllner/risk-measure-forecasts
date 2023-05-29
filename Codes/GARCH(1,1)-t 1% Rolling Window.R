@@ -10,7 +10,7 @@ library(ggplot2) # plot environment
 
 #Data preparation
 rm(list=ls())
-setwd("C:/Users/illne/Desktop/Uni/6.Semester/Seminar Ökonometrie/Empirical Estimation")
+setwd("C:/Users/illne/Desktop/Uni/6.Semester/Seminar Ökonometrie/risk-measure-forecasts/Codes")
 getwd()
 data <- read.csv("XDWF.DE.csv",header=TRUE, sep = ",")
 class(data) #check class of the data

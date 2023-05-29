@@ -9,7 +9,7 @@ library(dplyr) #options to change the data frame
 library(ggplot2) # plot environment
 
 rm(list=ls())
-setwd("C:/Users/illne/Desktop/Uni/6.Semester/Seminar Ökonometrie/Empirical Estimation")
+setwd("C:/Users/illne/Desktop/Uni/6.Semester/Seminar Ökonometrie/risk-measure-forecasts/Codes")
 getwd()
 data <- read.csv("XDWF.DE.csv",header=TRUE, sep = ",")
 class(data) #check class of the data

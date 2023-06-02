@@ -6,7 +6,7 @@ First, we performed one-step-ahead risk measure forecasts based on a GARCH(1,1)-
 You can find the replication material in our provided codes under "Simulation exercise.R"
 
 We also made an empirical analysis. Using data of a globally invested bank ETF Xtrackers MSCI World
-Financials UCITS we estimated Garch-type models under different distributional assumptions of the model innovations.
+Financials UCITS we estimated GARCH-type models under different distributional assumptions of the model innovations.
 We distinguished between the Student's t-distribution and the normal distribution.
 Our estimated models are the:
 GARCH(1,1)-t, GARCH(1,1)-N, AR(1)-GARCH(1,1)-t and AR(1)-GARCH(1,1)-N.

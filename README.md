@@ -2,7 +2,7 @@
 Financial risk measure forecasting based on GARCH-type models
 
 We are interested in risk measure forecasting, especially the Value-at-Risk (VaR) and Expected shortfall (ES) based on GARCH-type models.
-First, we performed one-step-ahead risk measure forecasts based on a GARCH(1,1)-model with an artificially generated data following a GARCH(1,1) process. 
+First, we performed one-step-ahead risk measure forecasts based on a GARCH(1,1)-model with artificially generated data following a GARCH(1,1) process. 
 You can find the replication material in our provided codes under "Simulation exercise.R"
 
 We also made an empirical analysis. Using data of a globally invested bank ETF Xtrackers MSCI World
